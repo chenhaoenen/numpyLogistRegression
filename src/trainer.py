@@ -87,7 +87,7 @@ def main():
     data_size, feat_dim = X.shape  # data_size：数据个数， feat_dim: 特征维度
     X = np.hstack((np.ones((data_size, 1)), X)) # 这里 相当于将w*x+b 中的 b和x融合到一起
     params = np.zeros((feat_dim+1, 1)) # 初始化参数，也就是w和b
-    iterations = 100000  # 训练迭代次数
+    iterations = 200000  # 训练迭代次数
     learning_rate = 0.1 # 学习率
 
     rate = 3000 # 从数据集中取rate条数据作为验证集，其他作为训练集
