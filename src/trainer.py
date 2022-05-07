@@ -87,10 +87,10 @@ def main():
     data_size, feat_dim = X.shape  # data_size：数据个数， feat_dim: 特征维度
     X = np.hstack((np.ones((data_size, 1)), X)) # 这里 相当于将w*x+b 中的 b和x融合到一起
     params = np.zeros((feat_dim+1, 1)) # 初始化参数，也就是w和b
-    iterations = 200000  # 训练迭代次数
-    learning_rate = 0.1 # 学习率
+    iterations = 100000  # 训练迭代次数
+    learning_rate = 0.8 # 学习率
 
-    rate = 3000 # 从数据集中取rate条数据作为验证集，其他作为训练集
+    rate = 5000 # 从数据集中取rate条数据作为验证集，其他作为训练集
     x_trainSet = X[:-rate]     # 训练集
     y_trainSet = Y[:-rate]
 
@@ -123,6 +123,8 @@ def main():
     plt.title("Convergence Graph of Accurate")
     plt.xlabel("Step")
     plt.ylabel("Acc")
+    plt.ylim(0.2, 1)
+
 
     fig.tight_layout()  # 调整整体空白
     plt.savefig('../doc/pic/loss-acc.jpg')
